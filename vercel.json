@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "default": {
-      "runtime": "nodejs10.24",
+      "runtime": "nodejs@10.24",
       "memory": 512
     }
   },
