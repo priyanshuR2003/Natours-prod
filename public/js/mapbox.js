@@ -1,4 +1,3 @@
-/* eslint-disable */
 import keys from '../../config/keys';
 
 export const displayMap = locations => {
@@ -7,19 +6,14 @@ export const displayMap = locations => {
     container: 'map',
     style: 'mapbox://styles/priyanshu2003/cll99874e00oh01qp51vg3avq',
     scrollZoom: false
-    // center: [-118.113491, 34.111745],
-    // zoom: 10,
-    // interactive: false
   });
 
   const bounds = new mapboxgl.LngLatBounds();
 
   locations.forEach(loc => {
-    // Create marker
     const el = document.createElement('div');
     el.className = 'marker';
 
-    // Add marker
     new mapboxgl.Marker({
       element: el,
       anchor: 'bottom'
@@ -27,7 +21,6 @@ export const displayMap = locations => {
       .setLngLat(loc.coordinates)
       .addTo(map);
 
-    // Add popup
     new mapboxgl.Popup({
       offset: 30
     })
@@ -35,7 +28,6 @@ export const displayMap = locations => {
       .setHTML(`<p>Day ${loc.day}: ${loc.description}</p>`)
       .addTo(map);
 
-    // Extend map bounds to include current location
     bounds.extend(loc.coordinates);
   });
 
